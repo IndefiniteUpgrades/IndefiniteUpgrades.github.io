@@ -4,19 +4,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project Phoenix</title>
+  <title>Euphoria</title>
+
   <style>
+    /* CSS for dark and light mode */
     body {
-      transition: background-color 0.3s ease;
       font-family: 'Roboto Slab', Arial, sans-serif;
+      text-align: justify;
       margin: 0;
       padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
     }
 
     .container {
       max-width: 800px;
       margin: 0 auto;
       padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
 
     h1 {
@@ -32,7 +38,6 @@
 
     .text-container {
       margin-top: 20px;
-      text-align: justify;
     }
 
     p {
@@ -43,7 +48,6 @@
     .image-container {
       text-align: center;
       margin-top: 20px;
-      border-radius: 3px;
     }
 
     .image-container img {
@@ -52,34 +56,60 @@
       max-width: 100%;
       height: auto;
       object-fit: cover;
-      border-radius: 3px;
+      border-radius: 4px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
 
     .options-container {
-  margin-top: 20px;
-  text-align: center;
-}
+      margin-top: 20px;
+      text-align: center;
+    }
 
-.options-container a {
-  display: inline-block;
-  margin: 5px;
-  padding: 10px 20px;
-  font-size: 18px;
-  color: rgb(0, 163, 0);
-  text-decoration: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  border: 2px solid rgb(34, 34, 34);
-  background-color: rgb(0, 113, 0); /* Add background-color property */
-  color: white; /* Set text color to contrast with the background */
-  border-radius: 5px;
-}
+    .options-container a {
+      display: inline-block;
+      margin: 5px;
+      padding: 10px 20px;
+      font-size: 18px;
+      color: #fff;
+      background-color: #333;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
 
-.options-container a:hover {
-  background-color: rgb(0, 192, 0);
-  color: white;
-}
+    .options-container a:hover {
+      background-color: #000;
+    }
 
-.option-container img {
+    /* Dark mode styles */
+    body.dark-mode {
+      background-color: #333;
+      color: #fff;
+    }
+
+    .container.dark-mode {
+      background-color: #222;
+      box-shadow: 0px 2px 6px rgba(255, 255, 255, 0.1);
+    }
+
+    .text-container.dark-mode p {
+      color: #fff;
+    }
+
+    .image-container.dark-mode {
+      box-shadow: 0 2px 6px rgba(255, 255, 255, 0.1);
+    }
+
+    .options-container.dark-mode a {
+      color: #fff;
+      background-color: #333;
+    }
+
+    .options-container.dark-mode a:hover {
+      background-color: #000;
+    }
+
+    .option-container img {
       max-width: 47%;
       height: auto;
       border-radius: 3px;
@@ -87,50 +117,117 @@
     }
 
   </style>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+
 </head>
 
-<body class="light-mode">
+<body>
   <div class="container">
-
-    <div style="text-align: center;">
-        <h1>Welcome to <span style="color: #ffae00;">Project Phoenix</span> !</h1>
+    <div style="text-align: center; position: relative;">
+      <h1>Welcome to <span style="color: #ffae00;">Project Phoenix</span> !</h1>
+      <hr>
       </div>
-      
-    <hr />
-    <div class="text-container">
-        <p><span style="font-size:23px;"><strong>What is <span style="color: #ffae00;"><strong>Project Phoenix</strong></span> ?</strong></span></p>
-        <p>Imagine a story where you are the hero, and your choices shape the path the story takes. In this gamebook, like others, you get to decide how you react to the situations you find yourself in. This unlocks possibilities and you will face challenges and riddles along the way.</p>
-        <p>Every decision you make will steer the story in a unique direction, offering many possibilities and multiple endings to discover. You should be careful when choosing your responses, as they may have heavy consequences. Everyone will die eventually, but it may happen earlier than expected. Get ready to unlock your imagination, challenge your problem-solving skills, and experience the thrill of <span style="color: #ffae00;">Project Phoenix</span>. Are you ready to answer the call?</p>
-    </div>
+
+
+    <script>
+      // Retrieve the username from local storage
+      var username = localStorage.getItem("username");
+
+      // Retrieve the current mode from local storage
+      var currentMode = localStorage.getItem("mode");
+
+      // Apply the current mode to the body and containers
+      setMode(currentMode);
+
+      function setMode(mode) {
+        var body = document.body;
+        body.classList.remove("light-mode", "dark-mode");
+        body.classList.add(mode + "-mode");
+
+        var container = document.querySelector(".container");
+        var textContainers = document.querySelectorAll(".text-container");
+        var imageContainer = document.querySelector(".image-container");
+        var optionsContainer = document.querySelector(".options-container");
+
+        container.classList.remove("light-mode", "dark-mode");
+        container.classList.add(mode + "-mode");
+
+        textContainers.forEach(function (textContainer) {
+          textContainer.classList.remove("light-mode", "dark-mode");
+          textContainer.classList.add(mode + "-mode");
+        });
+
+        imageContainer.classList.remove("light-mode", "dark-mode");
+        imageContainer.classList.add(mode + "-mode");
+
+        optionsContainer.classList.remove("light-mode", "dark-mode");
+        optionsContainer.classList.add(mode + "-mode");
+      }
+    </script>
+
+<div class="text-container">
+  <p><span style="font-size:23px;"><strong>What is <span style="color: #ffae00;"><strong>Project Phoenix</strong></span> all about?</strong></span></p>
+  <p>Imagine a story where you are the hero, and your choices shape the path the story takes. In this gamebook, like others, you get to decide how you react to the situations you find yourself in. This unlocks possibilities and you will face challenges and riddles along the way.</p>
+  <p>Every decision you make will steer the story in a unique direction, offering many possibilities and multiple endings to discover. You should be careful when choosing your responses, as they may have heavy consequences. Everyone will die eventually, but it may happen earlier than expected. Get ready to unlock your imagination, challenge your problem-solving skills, and experience the thrill of <span style="color: #ffae00;">Project Phoenix</span>. Are you ready to answer the call?</p>
+</div>
+
 
     <div class="image-container">
-        <img src="https://media.discordapp.net/attachments/1001967916520063068/1125170131543273603/onkel_joe_a_wasteland_green_grass_destroyed_structures_open_fie_e6492297-19ad-4e66-8d03-4a01ab33128e.png?width=1170&height=655" alt="Image">
+      <img src="https://media.discordapp.net/attachments/1001967916520063068/1125170131543273603/onkel_joe_a_wasteland_green_grass_destroyed_structures_open_fie_e6492297-19ad-4e66-8d03-4a01ab33128e.png?width=1170&height=655" alt="Image">
     </div>
+
 
     <div class="text-container">
-        <p><span style="color: #ffae00;">Project Phoenix</span> takes place in a post-apocalyptic world, where the government collapsed after a nuclear war broke out in the year 2037. Many places on earth became polluted with radiation, causing only a few people to survive. Food and clean water have become scarce, and death could be lingering around every corner. The remaining people are often ready to kill on sight, as strangers mean danger in most cases.</p>
-        <br>
-        <p><span style="font-size:23px;"><strong>How does the </strong></span><span style="color: #0094b2; font-size:23px;"><strong>Story System</strong></span><span style="font-size:23px;"><strong> work?</strong></span></p>
-        <p>The Story System in <span style="color: #ffae00;">Project Phoenix</span> is designed to provide a dynamic and immersive experience. It combines the thrill of storytelling with the interactivity of a gamebook. As you progress through the story, you will encounter various choices and challenges that will shape the outcome. At key decision points, you will be presented with multiple options. Your choice will influence the direction of the story, determining the challenges you face, the characters you meet, and the ultimate outcome of your adventure.</p>
-        <p>The Story System also incorporates elements of chance and skill. You may need to solve puzzles, engage in strategic thinking, or utilize your knowledge to overcome obstacles and progress in the story. Pay attention to details and think carefully before making decisions, as the consequences can be significant. With multiple branching paths and endings, Project Phoenix offers a high degree of replayability. Each playthrough can uncover new storylines and reveal different facets of the world.</p>
-        <br>
-        <p><span style="font-size:23px;"><strong>What are the </strong></span><span style="color: #00b256; font-size:23px;"><strong>Do's </strong></span><span><strong>and </strong></span><span style="color: #b23e00; font-size:23px;"><strong>Dont's</strong></span><span style="font-size:23px;"><strong> ?</strong></span></p>
-        <p><span style="color: #00b256;"><strong>1. Embrace your decisions: </strong></span>You should be sure about your decisions and accept their consequences. This also counts in the case that something bad happens and you lose progress.</p>
-        <p><span style="color: #b23e00;"><strong>2. Going back pages:</strong></span> It may seem tempting to just go back a page after making a bad decision. However, not doing this maintains the immersion into the story and makes the whole experience better for you in the end.</p>
-        <p><span style="color: #b23e00;"><strong>3. Looking up things on the internet:</strong></span> You will find yourself in situations where common knowledge is required to make the right decision. The information could be found on the internet, but you should make the decision with your current knowledge. This is also how it would be, if you found yourself in that situation in real life.</p>
-        <p><span style="color: #710090;"><strong>4. Remember: </strong></span> It is still just a game. Don't reenact anything of this story in real life. Also, you may find content not suitable for children. Only play this game, if you feel comfortable reading about gore & voilence.</p>
+      <p><span style="color: #ffae00;">Project Phoenix</span> takes place in a post-apocalyptic world, where the government collapsed after a nuclear war broke out in the year 2037. Many places on earth became polluted with radiation, causing only a few people to survive. Food and clean water have become scarce, and death could be lingering around every corner. The remaining people are often ready to kill on sight, as strangers mean danger in most cases.</p>
       <br>
+      <p><span style="font-size:23px;"><strong>How does the </strong></span><span style="color: #0094b2; font-size:23px;"><strong>Story System</strong></span><span style="font-size:23px;"><strong> work?</strong></span></p>
+      <p>The Story System in <span style="color: #ffae00;">Project Phoenix</span> is designed to provide a dynamic and immersive experience. It combines the thrill of storytelling with the interactivity of a gamebook. As you progress through the story, you will encounter various choices and challenges that will shape the outcome. At key decision points, you will be presented with multiple options. Your choice will influence the direction of the story, determining the challenges you face, the characters you meet, and the ultimate outcome of your adventure.</p>
+      <p>The Story System also incorporates elements of chance and skill. You may need to solve puzzles, engage in strategic thinking, or utilize your knowledge to overcome obstacles and progress in the story. Pay attention to details and think carefully before making decisions, as the consequences can be significant. With multiple branching paths and endings, Project Phoenix offers a high degree of replayability. Each playthrough can uncover new storylines and reveal different facets of the world.</p>
+      <br>
+      <p><span style="font-size:23px;"><strong>What are the </strong></span><span style="color: #00b256; font-size:23px;"><strong>Do's </strong></span><span><strong>and </strong></span><span style="color: #b23e00; font-size:23px;"><strong>Dont's</strong></span><span style="font-size:23px;"><strong> ?</strong></span></p>
+      <p><span style="color: #00b256;"><strong>1. Embrace your decisions: </strong></span>You should be sure about your decisions and accept their consequences. This also counts in the case that something bad happens and you lose progress.</p>
+      <p><span style="color: #b23e00;"><strong>2. Going back pages:</strong></span> It may seem tempting to just go back a page after making a bad decision. However, not doing this maintains the immersion into the story and makes the whole experience better for you in the end.</p>
+      <p><span style="color: #b23e00;"><strong>3. Looking up things on the internet:</strong></span> You will find yourself in situations where common knowledge is required to make the right decision. The information could be found on the internet, but you should make the decision with your current knowledge. This is also how it would be, if you found yourself in that situation in real life.</p>
+      <p><span style="color: #710090;"><strong>4. Remember: </strong></span> It is still just a game. Don't reenact anything of this story in real life. Also, you may find content not suitable for children. Only play this game, if you feel comfortable reading about gore & voilence.</p>
+
+    <br>
+    <br>
+
+    <div class="option-container">
+      <hr>
+      <br>
+      <a href="Prologue.html"><img src="https://media.discordapp.net/attachments/1001967916520063068/1125348416445231154/with_prologue1.png?width=1171&height=655" alt="Image"></a>
+      <a href="awakening.html"><img src="https://media.discordapp.net/attachments/1001967916520063068/1125348403493212160/skip_prologue1.png?width=1171&height=655" alt="Image"></a>
       <br>
       <p><strong>With that being said, you should be familiar enough with the concept of this. If you would like to know the backstory a bit better, choose the first option. If you would like to hop directly into the action, click on the second one.</strong></p>
+      <br>
     </div>
 
-      <div class="option-container">
-        <br>
-        <a href="Prologue.html"><img src="https://media.discordapp.net/attachments/1001967916520063068/1125348416445231154/with_prologue1.png?width=1171&height=655" alt="Image"></a>
-        <a href="awakening.html"><img src="https://media.discordapp.net/attachments/1001967916520063068/1125348403493212160/skip_prologue1.png?width=1171&height=655" alt="Image"></a>
-      </div>
+  </div>
 
+
+    <script>
+      // Set the content of the username element
+      document.getElementById("username").textContent = username;
+    </script>
+  </div>
+
+  <script>
+    // Replace the current page with a new entry in the browser's history
+    function replaceHistory() {
+      history.pushState(null, null, location.href);
+    }
+
+    // Handle the popstate event and prevent going back
+    window.addEventListener('popstate', function(event) {
+      alert("Sorry, no cheating. :)");
+      replaceHistory(); // Replace the current page in history again
+    });
+
+    // Replace the history entry when the page loads
+    replaceHistory();
+  </script>
 </body>
 
 </html>
