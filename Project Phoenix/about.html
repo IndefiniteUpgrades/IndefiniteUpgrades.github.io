@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About</title>
+  <style>
+    /* Add your custom CSS styling here */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.5;
+    }
+  </style>
+  <script>
+    function copyEmail() {
+      const email = 'your-email@example.com';
+      navigator.clipboard.writeText(email).then(function() {
+        alert('Email address copied to clipboard: ' + email);
+      });
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>About Us</h1>
+  </header>
+
+  <div class="container">
+    <h2>Who We Are</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget metus nec justo tincidunt efficitur. In eleifend mauris id nulla commodo, in auctor lectus egestas. Suspendisse potenti. Proin interdum vulputate urna et tempus. Nulla ac pulvinar risus. Nam vulputate faucibus efficitur. Donec feugiat odio non semper tristique.</p>
+
+    <h2>Our Mission</h2>
+    <p>Aliquam accumsan mi lectus, vitae aliquam velit tempus nec. Nunc in ullamcorper nisi. Donec at facilisis neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed euismod viverra fringilla. Nullam bibendum tortor ac justo euismod dignissim. Fusce consequat sapien id pharetra rhoncus.</p>
+
+    <h2>Contact Us</h2>
+    <p>If you have any questions, please feel free to <a href="#" onclick="copyEmail();">contact us</a>.</p>
+  </div>
+</body>
+</html>
