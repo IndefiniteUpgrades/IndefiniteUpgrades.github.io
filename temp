@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About</title>
+  <style>
+    /* Add your custom CSS styling here */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.5;
+    }
+  </style>
+
+<script>
+    function copyEmail() {
+      const email = 'your-email@example.com';
+      navigator.clipboard.writeText(email).then(function() {
+        alert('Email address copied to clipboard: ' + email);
+      });
+    }
+  </script>
+
+</head>
+<body>
+  <header>
+    <h1>About Me</h1>
+  </header>
+
+  <div class="container">
+    <h2>About the creator</h2>
+    <p>Not much to know about me, just a random dude on ther internet being bored.</p>
+
+    <h2>Contact</h2>
+    <p>If you notice any errors or have suggestions to improve this story, feel free to message me on my mail: <a href="#" onclick="copyEmail(gulagfriend@gmail.com);">gulagfriend@gmail.com</a>.</p>
+
+
+    <ul>
+      <li>Pictures: Midjourney</li>
+      <li>HTML & CSS: With the help of ChatGPT</li>
+      <li>Story: Mostly by myself, with some help of ChatGPT</li>
+      <!-- Add more team members as needed -->
+    </ul>
+  </div>
+</body>
+</html>

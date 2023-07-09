@@ -23,6 +23,7 @@
       max-width: 800px;
       margin: 0 auto;
       padding: 20px;
+      text-align: center; /* Center-align the text */
     }
 
     h1 {
@@ -34,38 +35,70 @@
       font-size: 18px;
       line-height: 1.5;
     }
-  </style>
 
-<script>
+    a {
+      color: #0004d3;
+      text-decoration: none;
+    }
+
+    .options-container {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .options-container a {
+      display: inline-block;
+      margin: 5px;
+      padding: 10px 20px;
+      font-size: 18px;
+      color: rgb(0, 163, 0);
+      text-decoration: none;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      border: 2px solid rgb(49, 49, 49);
+      background-color: rgb(168, 168, 168); /* Add background-color property */
+      color: white; /* Set text color to contrast with the background */
+      border-radius: 5px;
+    }
+
+    .options-container a:hover {
+      background-color: rgb(122, 122, 122);
+      color: white;
+    }
+  </style>
+  <script>
     function copyEmail() {
-      const email = 'your-email@example.com';
+      const email = 'gulagfriend@gmail.com';
       navigator.clipboard.writeText(email).then(function() {
         alert('Email address copied to clipboard: ' + email);
       });
     }
   </script>
-
 </head>
 <body>
   <header>
-    <h1>About Us</h1>
+    <h1>Who Created Project Phoenix?</h1>
   </header>
 
   <div class="container">
     <h2>About the creator</h2>
-    <p>Not much to know about me, just a random dude on ther internet being bored.</p>
+    <p>Not much to know about me, just a random dude on the internet being bored.</p>
 
     <h2>Contact</h2>
-    <p>If you notice any errors or have suggestions to improve this story, feel free to message me on my mail: <a href="#" onclick="copyEmail(gulagfriend@gmail.com);">gulagfriend@gmail.com</a>.</p>
+    <p>If you have any questions, find any errors, or have something else to tell me, please feel free to <strong><a href="#" onclick="copyEmail();">contact me</a></strong>.</p>
 
     <h2>Used tools</h2>
-    <p>Below are the tools listed that i used to create this gamebook.</p>
-    <ul>
-      <li>Picture: Midjourney</li>
-      <li>HTML & CSS: With the help of ChatGPT</li>
-      <li>Story: With the help of ChatGPT</li>
-      <!-- Add more team members as needed -->
-    </ul>
+    <p>Below are the tools listed that I used to create this gamebook.</p>
+
+      <p>Pictures: Midjourney</p>
+      <p>HTML & CSS: With the help of ChatGPT</p>
+      <p>Story: Mostly by myself, with some help of ChatGPT</p>
+
+    <br>
+    <br>
+
+    <div class="options-container">
+      <a href="./index.html">Return</a>
+    </div>
   </div>
 </body>
 </html>
